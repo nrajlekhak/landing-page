@@ -1,0 +1,83 @@
+$body-bg: black;
+$progress-bar: white;
+$overlay: red;
+
+@import '../css/animate';
+
+
+
+body{
+  // background: $body-bg;
+  padding:0;
+  margin:0;
+  height: 2000px;
+}
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.progress-bar-base {
+  height: 5px;
+  position: fixed;
+  bottom:0;
+  z-index: 999;
+
+}
+
+.progress-bar {
+  @extend .progress-bar-base;
+  background: $progress-bar;
+  width: 100%;
+}
+
+.progress-bar-overlay {
+  @extend .progress-bar-base;
+  background: $overlay;
+  width: 0%;
+}
+
+.fxed {
+  position: fixed;
+  height: 800px;
+}
+
+.hidden {
+  display: none;
+}
+
+.cs-slider {
+  width: 100%;
+}
+.slide {
+  width: 100%;
+  background-size: cover;
+  color: white;
+  text-align: center;
+
+  h1 {
+    margin: 25%;
+  }
+}
+
+.s1 {
+  @extend .slide;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/564/1200/900");
+}
+
+.s2 {
+  @extend .slide;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/565/1200/900");
+}
+.s3 {
+  @extend .slide;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/566/1200/900");
+}
+.s4 {
+  @extend .slide;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/567/1200/900");
+}
+.s5 {
+  @extend .slide;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/568/1200/900");
+}
