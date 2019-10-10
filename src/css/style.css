@@ -2588,8 +2588,7 @@
 
 body {
   padding: 0;
-  margin: 0;
-  height: 2000px; }
+  margin: 0; }
 
 ::-webkit-scrollbar {
   width: 0px;
@@ -2630,16 +2629,16 @@ body {
     margin: 25%; }
 
 .s1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/564/1200/900"); }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/nirajlekhak.com/src/images/one.jpg"); }
 
 .s2 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/565/1200/900"); }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/nirajlekhak.com/src/images/two.jpg"); }
 
 .s3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/566/1200/900"); }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/nirajlekhak.com/src/images/three.jpg"); }
 
 .s4 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/567/1200/900"); }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/nirajlekhak.com/src/images/four.jpg"); }
 
 .s5 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/568/1200/900"); }
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/nirajlekhak.com/src/images/five.jpg"); }

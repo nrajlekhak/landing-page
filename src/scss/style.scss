@@ -10,7 +10,6 @@ body{
   // background: $body-bg;
   padding:0;
   margin:0;
-  height: 2000px;
 }
 ::-webkit-scrollbar {
   width: 0px;  /* Remove scrollbar space */
@@ -62,22 +61,22 @@ body{
 
 .s1 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/564/1200/900");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/one.jpg");
 }
 
 .s2 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/565/1200/900");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/two.jpg");
 }
 .s3 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/566/1200/900");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/three.jpg");
 }
 .s4 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/567/1200/900");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/four.jpg");
 }
 .s5 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://picsum.photos/id/568/1200/900");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/five.jpg");
 }
