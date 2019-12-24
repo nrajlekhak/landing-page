@@ -13,7 +13,7 @@ let auto = true;
 
 var bufferFn = debounce(mainLogic,400);
 
-window.addEventListener('mousewheel', bufferFn);
+window.addEventListener('wheel', bufferFn);
 
 
 function startProgress() {
@@ -42,7 +42,7 @@ function progressBar(percent) {
 }
 
 
-function changeSlide(centScroll) {
+function changeSlide(centScroll, type="next") {
   imgs.forEach(img => {
     if (img.classList.contains('hidden')) {
       
@@ -52,6 +52,22 @@ function changeSlide(centScroll) {
   });
   let index = Math.floor(centScroll / slot);
   if (index >= imgs.length) index = 0;
+
+
+  let curImg = imgs[index].classList;
+  if(type==='prev'){
+    if(curImg.contains('slideInUp')){
+      curImg.add('slideInDown');
+      curImg.remove('slideInUp');
+    }
+  } else if(type==='next') {
+    
+    if(curImg.contains('slideInDown')){
+      curImg.remove('slideInDown');
+      curImg.add('slideInUp');
+    }
+  }
+  
   
   imgs[index].classList.remove('hidden');
 }
@@ -67,18 +83,15 @@ function mainLogic(e) {
       if (count < per) {
         count = per * (imgs.length -1);
         n = slot * (imgs.length - 1);
-        console.log(n, count,'loop');        
       } else {
         count = (Math.floor((n - slot) / slot))*per; 
         n = n - slot;
       }
-      console.log(n, count,'prev');
-      changeSlide(n);
+      changeSlide(n, 'prev');
       
     } else if (delta < 0) {
       count = (Math.floor((n+slot) / slot))*per;    
-      console.log(n+slot, count, 'next');
-      changeSlide(n+slot);    
+      changeSlide(n+slot, 'next');    
     }
 }
 

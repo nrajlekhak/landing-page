@@ -4,18 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "postinstall": "./node_modules/.bin/gulp build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.7",
-    "gulp": "3.9.1",
+    "gulp": "^4.0.2",
     "gulp-sass": "3.1.0"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
-    "esm": "^3.2.25",
-    "lodash": "^4.17.15"
+    "autoprefixer": "^9.4.6",
+    "beeper": "^1.1.1",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-shell": "^0.6.5",
+    "gulp-sourcemaps": "^2.6.4"
   }
 }

@@ -2,12 +2,14 @@ $body-bg: black;
 $progress-bar: white;
 $overlay: red;
 
+$cyan: #60daaa;
+
 @import '../css/animate';
 
 
 
 body{
-  // background: $body-bg;
+  background: $body-bg;
   padding:0;
   margin:0;
 }
@@ -53,6 +55,7 @@ body{
   background-size: cover;
   color: white;
   text-align: center;
+  animation-duration: 1.25s;
 
   h1 {
     margin: 25%;
@@ -61,22 +64,220 @@ body{
 
 .s1 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/one.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/one.jpg");
 }
 
 .s2 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/two.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/two.jpg");
 }
 .s3 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/three.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/three.jpg");
 }
 .s4 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/four.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/four.jpg");
 }
 .s5 {
   @extend .slide;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/five.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/five.jpg");
+}
+
+
+.home {
+  margin: 10% 0;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 20px;
+
+  .home-content {
+    font-size: 20px;
+    min-height: 500px;
+    padding: 15% 0;
+  }
+
+  .left {
+    grid-column:1/1;
+    margin-left: 40px;
+    text-align: center;
+
+  }
+  .right {
+    grid-column:2/2;
+    text-align: right;
+
+  }
+}
+
+.cv {
+  margin: 10% 0;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 20px;
+
+  .cv-content {
+    font-size: 20px;
+    min-height: 500px;
+    padding: 25% 0;
+  }
+
+  .left {
+    grid-column:1/1;
+    margin-left: 40px;
+    text-align: center;
+  }
+  
+  .right {
+    padding-left: 15px;
+    padding-right: 15px;
+    grid-column:2/2;
+    text-align: center;   
+    vertical-align: center;
+  }
+}
+
+.blog {
+  margin: 10% 0;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 20px;
+
+  .blog-content {
+    font-size: 20px;
+    min-height: 500px;
+    padding: 15% 0;
+  }
+
+  .left {
+    grid-column:1/1;
+    margin-left: 40px;
+    text-align: center;
+
+  }
+  .right {
+    grid-column:2/2;
+    text-align: center;
+
+  }
+}
+
+.contact {
+  margin: 10% 0;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 20px;
+
+  .contact-content {
+    font-size: 20px;
+    min-height: 500px;
+    padding: 15% 0;
+  }
+
+  .left {
+    grid-column:1/1;
+    margin-left: 40px;
+    text-align: center;
+
+  }
+  .right {
+    grid-column:2/2;
+    text-align: center;
+
+  }
+}
+
+.portfolio {
+  margin: 10% 0;
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 20px;
+
+  .portfolio-content {
+    font-size: 20px;
+    min-height: 500px;
+    padding: 15% 0;
+  }
+
+  .right {
+    margin-left: 40px;
+    text-align: center;
+    grid-column:2/2;
+    
+  }
+  .left {
+    grid-column:1/1;
+    text-align: center;
+
+  }
+}
+
+.check-my-btn {
+  border: 2px solid white;
+  padding: 20px;
+  font-size: 20px;
+  background: transparent;
+  color:white;
+  border-radius: 5px;
+}
+
+
+//=== Drawing effect
+
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  // color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+    
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    // color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+.draw-border {
+  @include btn-border-drawing(transparent, #fff, 4px, top, left);
+}
+
+.mt-5{
+  margin-top: 20px;
 }

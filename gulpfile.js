@@ -1,27 +1,77 @@
-const gulp = require('gulp');
-const browserSync = require('browser-sync').create();
+const { src, dest, watch, series, parallel } = require('gulp');
+const browsersync = require('browser-sync').create();
 const sass = require('gulp-sass');
+const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
+const plumber = require('gulp-plumber');
+const sasslint = require('gulp-sass-lint');
+const cache = require('gulp-cached');
+const notify = require('gulp-notify');
+const beeper = require('beeper');
 
-// compile sass
+// Compile CSS from Sass.
+function buildStyles() {
+  return src('src/scss/style.scss')
+    .pipe(plumbError()) // Global error handler through all pipes.
+    .pipe(sourcemaps.init())
+    .pipe(sass({ outputStyle: 'compressed' }))
+    .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7']))
+    .pipe(sourcemaps.write())
+    .pipe(dest('src/css/'))
+    .pipe(browsersync.reload({ stream: true }));
+}
 
-gulp.task('sass', () => {
-  return gulp.src(['src/scss/*.scss'])
-    .pipe(sass())
-    .pipe(gulp.dest('src/css'))
-    .pipe(browserSync.stream());
-});
+// Watch changes on all *.scss files, lint them and
+// trigger buildStyles() at the end.
+function watchFiles() {
+  watch(
+    ['src/scss/*.scss', 'src/scss/**/*.scss'],
+    { events: 'all', ignoreInitial: false },
+    series(sassLint, buildStyles)
+  );
+}
 
-
-//watch and serve
-gulp.task('serve',['sass'], ()=>{
-  browserSync.init({
-    server: './src'
+// Init BrowserSync.
+function browserSync(done) {
+  browsersync.init({
+    proxy: 'landingpage.test', // Change this value to match your local URL.
+    socket: {
+      domain: 'localhost:3000'
+    }
   });
+  done();
+}
 
-  gulp.watch(['src/scss/*.scss'], ['sass']);
-  gulp.watch(['src/*.html'].concat('change', browserSync.reload))
-  gulp.watch(['src/js/*.js'].concat('change', browserSync.reload))
-});
+// Init Sass linter.
+function sassLint() {
+  return src(['scss/*.scss', 'scss/**/*.scss'])
+    .pipe(cache('sasslint'))
+    .pipe(sasslint({
+      configFile: '.sass-lint.yml'
+    }))
+    .pipe(sasslint.format())
+    .pipe(sasslint.failOnError());
+}
 
-// default task
-gulp.task('default', ['serve']);
+// Error handler.
+function plumbError() {
+  return plumber({
+    errorHandler: function(err) {
+      notify.onError({
+        templateOptions: {
+          date: new Date()
+        },
+        title: "Gulp error in " + err.plugin,
+        message:  err.formatted
+      })(err);
+      beeper();
+      this.emit('end');
+    }
+  })
+}
+
+// Export commands.
+exports.default = parallel(browserSync, watchFiles); // $ gulp
+exports.sass = buildStyles; // $ gulp sass
+exports.watch = watchFiles; // $ gulp watch
+exports.build = series(buildStyles); // $ gulp bui
