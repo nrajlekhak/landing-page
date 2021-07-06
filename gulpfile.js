@@ -34,7 +34,6 @@ function watchFiles() {
 // Init BrowserSync.
 function browserSync(done) {
   browsersync.init({
-    proxy: 'landingpage.test', // Change this value to match your local URL.
     socket: {
       domain: 'localhost:3000'
     }

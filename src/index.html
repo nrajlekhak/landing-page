@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="css/style.css">
 
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -15,44 +17,52 @@
   <div class="progress-bar-overlay"></div>
 
   <div class="cs-slider">
-    <div class="slide s1 hidden animated slideInUp fxed">
+    <div class="slide s1 hidden animated slideInUp  fxed">
       <div class="home">
-        <div class="home-content left draw-border">
-          <h2>Hi,</h2>
-          <h3>I'm Niraj Lekhak.</h4>
-            <h5>Welcome to my page.</h5>
+        <div class="home-content left">
+          <div class="name">Niraj <span>Lekhak</span></div>
+          <h5 class="sub-name"> Web Developer</h5>
+
+          <div class="container-fluid social-bar">
+            <ul class="list-inline">
+                <li class="list-inline-item" data-toggle="tooltip" title="View my linkedin profile"><a target="_blank" href="https://www.linkedin.com/in/lekhakhimself/"><i class="fa fa-3x fa-linkedin" aria-hidden="true"></i></a></li>
+                <li class="list-inline-item"><a target="_blank" href="https://twitter.com/nrajlekhak" data-toggle="tooltip" title="Follow me on Twitter"><i class=" fa fa-3x fa-twitter" aria-hidden="true"></i></a></li>
+                <li class="list-inline-item"><a target="_blank" href="https://github.com/nrajlekhak" data-toggle="tooltip" title="View my Github Proflie"><i class="fa fa-3x fa-github" aria-hidden="true"></i></a></li>
+                <li class="list-inline-item"><a target="_blank" href="https://instagram.com/lekhakhimself" data-toggle="tooltip" title="Hangout with me on Instagram"><i class="fa fa-3x fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
         </div>
-        <div class="home-content right ">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Ipsam, libero. Voluptatem itaque corrupti illum, mollitia aliquam perferendis necessitatibus
-          alias similique cupiditate magnam facilis sapiente rem ducimus laborum.
-          Quis, nulla commodi?</div>
+        </div>
       </div>
     </div>
     <div class="slide s2 hidden animated slideInUp fxed">
       <div class="cv">
-        <div class="cv-content left"><button class="check-my-btn">Check My Resume</button></div>
-        <div class="cv-content right draw-border">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-          Ipsam, libero. Voluptatem itaque corrupti illum, mollitia aliquam perferendis necessitatibus
-          alias similique cupiditate magnam facilis sapiente rem ducimus laborum.
-          Quis, nulla commodi?</div>
+        <div class="cv-content left">
+          <span class="first">Full Stack / Mobile App </span><br>
+          <span class="second">Developer</span> <br>
+          <span class="company">@<a target="_blank" href="https://grouphoenix.com">Group Phoenix</a></span>
+        </div>
+        <div class="cv-content right draw-border">
+          <p>I have been working as a Full stack web Developer since 2017, I'm currently involved with Group Phoenix as full time Laravel, Django/Flask Developer. I also develop Android and IOS Apps using nativescript for them.</p>
+          <a target="_blank" href="https://cv.nirajlekhak.com" class="check-my-btn">Check My Resume</a>
+        </div>
       </div>
     </div>
     <div class="slide s3 hidden animated slideInUp fxed">
-        <div class="blog">
-          <div class="blog-content left draw-border">
-            <h4>I write about Tech, Society and politics</h4>
-              <button class="check-my-btn mt-5">Read My Blog</button>
-          </div>
-          <div class="blog-content right ">
-            <h3>Latest post</h3>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Ipsam, libero. Voluptatem itaque corrupti illum, mollitia aliquam perferendis necessitatibus
-            alias similique cupiditate magnam facilis sapiente rem ducimus laborum.
-            Quis, nulla commodi?
-          </div>
+      <div class="blog">
+        <div class="blog-content left draw-border">
+          <h4>I write about Tech, Society and politics</h4>
+          <button class="check-my-btn mt-5">Read My Blog</button>
         </div>
+        <div class="blog-content right ">
+          <h3>Latest post</h3>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+          Ipsam, libero. Voluptatem itaque corrupti illum, mollitia aliquam perferendis necessitatibus
+          alias similique cupiditate magnam facilis sapiente rem ducimus laborum.
+          Quis, nulla commodi?
+        </div>
+      </div>
     </div>
-      
+
     <div class="slide s4 hidden animated slideInUp fxed">
       <div class="portfolio">
         <div class="portfolio-content left ">
@@ -65,14 +75,15 @@
         <div class="portfolio-content right draw-border">
           <h4>Work that I'm Proud of</h4>
           <button class="check-my-btn mt-5">View my Complete Portfolio</button>
-    
+
         </div>
       </div>
     </div>
     <div class="slide s5 hidden animated slideInUp fxed">
       <div class="contact">
         <div class="contact-content left draw-border">
-          <h4>Have a Question?</h4> <h5>Leave a Message</h5>
+          <h4>Have a Question?</h4>
+          <h5>Leave a Message</h5>
         </div>
         <div class="contact-content right ">
           <h3>Contact form</h3>

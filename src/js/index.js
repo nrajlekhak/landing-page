@@ -55,6 +55,10 @@ function changeSlide(centScroll, type="next") {
 
 
   let curImg = imgs[index].classList;
+  let bdr = document.querySelector('.'+curImg[1]+' .draw-border');
+
+  if(bdr) bdr.classList.remove('draw-bd');
+  
   if(type==='prev'){
     if(curImg.contains('slideInUp')){
       curImg.add('slideInDown');
@@ -70,6 +74,12 @@ function changeSlide(centScroll, type="next") {
   
   
   imgs[index].classList.remove('hidden');
+
+  let classLst = imgs[index].classList[1];
+  setTimeout(() => {
+   let dbdr =  document.querySelector('.'+classLst+' '+'.draw-border');
+   if(dbdr) dbdr.classList.add('draw-bd');
+  }, 750);
 }
 
 
@@ -77,9 +87,9 @@ function changeSlide(centScroll, type="next") {
 function mainLogic(e) {
   auto = false;
   clearTimeout(autoTimer);
-  let delta = e.wheelDelta;
+  let delta = e.deltaY;
   let n = Math.round((count / progressLen)*100);
-    if (delta > 0) {
+    if (delta < 0) {
       if (count < per) {
         count = per * (imgs.length -1);
         n = slot * (imgs.length - 1);
@@ -89,7 +99,7 @@ function mainLogic(e) {
       }
       changeSlide(n, 'prev');
       
-    } else if (delta < 0) {
+    } else if (delta > 0) {
       count = (Math.floor((n+slot) / slot))*per;    
       changeSlide(n+slot, 'next');    
     }
